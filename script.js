@@ -2,6 +2,12 @@
    PAWFECT -?Interactive Scripts
    ============================================ */
 
+
+// -- Contact Email (obfuscated) ------------
+function getContactEmail() {
+  return 'wy' + '1234561995' + '@' + 'outlook.com';
+}
+
 // -- Product Data --------------------------
 const products = [
   {
@@ -548,23 +554,35 @@ document.getElementById('trackBtn').addEventListener('click', () => {
   const input = document.getElementById('trackInput');
   const result = document.getElementById('trackResult');
   const trackingNumber = input.value.trim();
-  if (!trackingNumber) {
+  const sanitized = trackingNumber.replace(/[<>"']/g, '').substring(0, 50);
+  if (!sanitized) {
     result.style.display = 'block';
-    result.textContent = ' Please enter a tracking number.';
+    result.textContent = 'Please enter a tracking number.';
+    result.style.color = '#c17a4e';
+    return;
+  }
+  if (!/^[A-Za-z0-9-]{8,30}$/.test(sanitized)) {
+    result.style.display = 'block';
+    result.textContent = 'Invalid tracking number format. Please check and try again.';
     result.style.color = '#c17a4e';
     return;
   }
   result.style.display = 'block';
   result.style.color = 'var(--color-slate)';
-  result.innerHTML = ` Tracking <strong>${trackingNumber}</strong>: Your package is currently in transit. Estimated delivery: <strong>3-? business days</strong>. For real-time tracking, please check the link sent to your email or contact <strong>wy1234561995@outlook.com</strong>.`;
+  result.innerHTML = 'Tracking <strong>' + sanitized + '</strong>: Your package is currently in transit. Estimated delivery: <strong>3-5 business days</strong>. For real-time tracking, please check the link sent to your email or contact <strong>' + getContactEmail() + '</strong>.';
   input.value = '';
 });
 
 // -- Newsletter ----------------------------
 newsletterForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  const email = newsletterForm.querySelector('input').value;
-  showToast(' Welcome to the pack! Check your inbox for 10% off.');
+  const input = newsletterForm.querySelector('input');
+  const email = input.value.trim();
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    showToast('Please enter a valid email address.');
+    return;
+  }
+  showToast('Welcome to the pack! Check your inbox for 10% off.');
   newsletterForm.reset();
 });
 
