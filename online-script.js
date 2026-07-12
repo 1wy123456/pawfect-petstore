@@ -1,8 +1,8 @@
-/* ============================================
-   PAWFECT -?Interactive Scripts
+﻿/* ============================================
+   PAWFECT �?Interactive Scripts
    ============================================ */
 
-// -- Product Data --------------------------
+// ── Product Data ──────────────────────────
 const products = [
   {
     id: 1,
@@ -200,11 +200,11 @@ const products = [
   }
 ];
 
-// -- Reviews Data --------------------------
+// ── Reviews Data ──────────────────────────
 const reviews = [
   {
     stars: 5,
-    text: 'The CloudRest bed is incredible. My senior golden retriever used to struggle getting up -?now she sleeps through the night and wakes up with so much more energy. Worth every penny.',
+    text: 'The CloudRest bed is incredible. My senior golden retriever used to struggle getting up �?now she sleeps through the night and wakes up with so much more energy. Worth every penny.',
     author: 'Sarah M.',
     location: '🇺🇸 California, USA',
     avatar: '🐕',
@@ -228,7 +228,7 @@ const reviews = [
   },
   {
     stars: 4,
-    text: 'Great quality products and the international shipping was surprisingly quick (8 days to Germany). The ceramic bowls are gorgeous -?they feel like something from a high-end kitchen store.',
+    text: 'Great quality products and the international shipping was surprisingly quick (8 days to Germany). The ceramic bowls are gorgeous �?they feel like something from a high-end kitchen store.',
     author: 'Markus W.',
     location: '🇩🇪 Berlin, Germany',
     avatar: '🐾',
@@ -236,7 +236,7 @@ const reviews = [
   },
   {
     stars: 5,
-    text: 'Ordered the Rope Tug set and Bounce Ball for our new puppy. Both are holding up amazingly well against his sharp little teeth. Love that everything is natural materials -?no weird chemical smells.',
+    text: 'Ordered the Rope Tug set and Bounce Ball for our new puppy. Both are holding up amazingly well against his sharp little teeth. Love that everything is natural materials �?no weird chemical smells.',
     author: 'Yuki T.',
     location: '🇯🇵 Tokyo, Japan',
     avatar: '🐶',
@@ -252,10 +252,10 @@ const reviews = [
   }
 ];
 
-// -- Cart State ----------------------------
+// ── Cart State ────────────────────────────
 let cart = [];
 
-// -- DOM Elements --------------------------
+// ── DOM Elements ──────────────────────────
 const productGrid = document.getElementById('productGrid');
 const reviewGrid = document.getElementById('reviewGrid');
 const cartSidebar = document.getElementById('cartSidebar');
@@ -273,7 +273,7 @@ const toast = document.getElementById('toast');
 const checkoutBtn = document.getElementById('checkoutBtn');
 const newsletterForm = document.getElementById('newsletterForm');
 
-// -- Render Products -----------------------
+// ── Render Products ───────────────────────
 function renderProducts(filter = 'all') {
   const filtered = filter === 'all' ? products : products.filter(p => p.category === filter);
   productGrid.innerHTML = filtered.map(p => `
@@ -306,11 +306,11 @@ function renderProducts(filter = 'all') {
   });
 }
 
-// -- Render Reviews ------------------------
+// ── Render Reviews ────────────────────────
 function renderReviews() {
   reviewGrid.innerHTML = reviews.map(r => `
     <div class="review-card">
-      <div class="review-stars">${'-?.repeat(r.stars)}${'-?.repeat(5 - r.stars)}</div>
+      <div class="review-stars">${'�?.repeat(r.stars)}${'�?.repeat(5 - r.stars)}</div>
       <p class="review-text">"${r.text}"</p>
       <div class="review-author">
         <div class="review-avatar" style="background:${r.avatarBg}">${r.avatar}</div>
@@ -323,7 +323,7 @@ function renderReviews() {
   `).join('');
 }
 
-// -- Cart Functions ------------------------
+// ── Cart Functions ────────────────────────
 function addToCart(productId) {
   const product = products.find(p => p.id === productId);
   const existing = cart.find(item => item.id === productId);
@@ -371,7 +371,7 @@ function updateCart() {
           <h4>${item.name}</h4>
           <span class="cart-item-price">$${item.price}</span>
           <div class="cart-item-qty">
-            <button onclick="updateQty(${item.id}, -1)">-?/button>
+            <button onclick="updateQty(${item.id}, -1)">�?/button>
             <span>${item.qty}</span>
             <button onclick="updateQty(${item.id}, 1)">+</button>
           </div>
@@ -396,7 +396,7 @@ function closeCart() {
   document.body.style.overflow = '';
 }
 
-// -- Toast ---------------------------------
+// ── Toast ─────────────────────────────────
 let toastTimer;
 function showToast(message) {
   toast.textContent = message;
@@ -405,7 +405,7 @@ function showToast(message) {
   toastTimer = setTimeout(() => toast.classList.remove('show'), 2500);
 }
 
-// -- Product Filters -----------------------
+// ── Product Filters ───────────────────────
 document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -414,7 +414,7 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
   });
 });
 
-// -- FAQ Accordion -------------------------
+// ── FAQ Accordion ─────────────────────────
 document.querySelectorAll('.faq-question').forEach(btn => {
   btn.addEventListener('click', () => {
     const item = btn.parentElement;
@@ -426,7 +426,7 @@ document.querySelectorAll('.faq-question').forEach(btn => {
   });
 });
 
-// -- Mobile Menu ---------------------------
+// ── Mobile Menu ───────────────────────────
 mobileMenuBtn.addEventListener('click', () => {
   mobileMenuBtn.classList.toggle('active');
   mobileMenu.classList.toggle('open');
@@ -441,12 +441,12 @@ document.querySelectorAll('.mobile-link').forEach(link => {
   });
 });
 
-// -- Cart Toggle ---------------------------
+// ── Cart Toggle ───────────────────────────
 cartBtn.addEventListener('click', openCart);
 cartClose.addEventListener('click', closeCart);
 cartOverlay.addEventListener('click', closeCart);
 
-// -- PayPal Payment Modal ------------------
+// ── PayPal Payment Modal ──────────────────
 const paymentOverlay = document.getElementById('paymentOverlay');
 const paymentModal = document.getElementById('paymentModal');
 const paymentClose = document.getElementById('paymentClose');
@@ -475,7 +475,7 @@ checkoutBtn.addEventListener('click', () => {
 paymentClose.addEventListener('click', closePayment);
 paymentOverlay.addEventListener('click', closePayment);
 
-// -- Legal Modals (Privacy & Terms) --------
+// ── Legal Modals (Privacy & Terms) ────────
 const legalOverlay = document.getElementById('legalOverlay');
 const privacyModal = document.getElementById('privacyModal');
 const termsModal = document.getElementById('termsModal');
@@ -497,7 +497,7 @@ function closeLegal() {
   document.body.style.overflow = '';
 }
 
-// -- Support Page Modals -------------------
+// ── Support Page Modals ───────────────────
 const contactModal = document.getElementById('contactModal');
 const shippingModal = document.getElementById('shippingModal');
 const returnsModal = document.getElementById('returnsModal');
@@ -537,7 +537,7 @@ document.getElementById('trackClose').addEventListener('click', closeLegal);
 
 legalOverlay.addEventListener('click', closeLegal);
 
-// -- Track Order Form ----------------------
+// ── Track Order Form ──────────────────────
 document.getElementById('trackBtn').addEventListener('click', () => {
   const input = document.getElementById('trackInput');
   const result = document.getElementById('trackResult');
@@ -550,11 +550,11 @@ document.getElementById('trackBtn').addEventListener('click', () => {
   }
   result.style.display = 'block';
   result.style.color = 'var(--color-slate)';
-  result.innerHTML = `📦 Tracking <strong>${trackingNumber}</strong>: Your package is currently in transit. Estimated delivery: <strong>3-? business days</strong>. For real-time tracking, please check the link sent to your email or contact <strong>wy1234561995@outlook.com</strong>.`;
+  result.innerHTML = `📦 Tracking <strong>${trackingNumber}</strong>: Your package is currently in transit. Estimated delivery: <strong>3�? business days</strong>. For real-time tracking, please check the link sent to your email or contact <strong>wy1234561995@outlook.com</strong>.`;
   input.value = '';
 });
 
-// -- Newsletter ----------------------------
+// ── Newsletter ────────────────────────────
 newsletterForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const email = newsletterForm.querySelector('input').value;
@@ -562,7 +562,7 @@ newsletterForm.addEventListener('submit', (e) => {
   newsletterForm.reset();
 });
 
-// -- Header Scroll Effect ------------------
+// ── Header Scroll Effect ──────────────────
 window.addEventListener('scroll', () => {
   if (window.scrollY > 50) {
     header.classList.add('scrolled');
@@ -571,7 +571,7 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// -- Smooth Scroll for Nav Links -----------
+// ── Smooth Scroll for Nav Links ───────────
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', (e) => {
     // Skip links that have an id (handled by other event listeners)
@@ -586,7 +586,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// -- Intersection Observer: Animate on Scroll --
+// ── Intersection Observer: Animate on Scroll ──
 const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -40px 0px' };
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -605,7 +605,7 @@ document.querySelectorAll('.category-card, .product-card, .review-card, .faq-ite
   observer.observe(el);
 });
 
-// -- Initialize ----------------------------
+// ── Initialize ────────────────────────────
 renderProducts();
 renderReviews();
 updateCart();
