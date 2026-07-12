@@ -630,7 +630,18 @@ document.querySelectorAll('.category-card, .product-card, .review-card, .faq-ite
 });
 
 
+
+// -- Email Obfuscation Render --------------
+function renderContactEmails() {
+  document.querySelectorAll('.cemail').forEach(function(el) {
+    var u = el.getAttribute('data-u');
+    var d = el.getAttribute('data-d');
+    if (u && d) { el.textContent = u + '@' + d; }
+  });
+}
+
 // -- Initialize ----------------------------
+renderContactEmails();
 // Obfuscate all email references in the DOM
 document.querySelectorAll('*').forEach(el => {
   if (el.childNodes.length === 1 && el.childNodes[0].nodeType === 3) {
