@@ -629,7 +629,19 @@ document.querySelectorAll('.category-card, .product-card, .review-card, .faq-ite
   observer.observe(el);
 });
 
+
 // -- Initialize ----------------------------
+// Obfuscate all email references in the DOM
+document.querySelectorAll('*').forEach(el => {
+  if (el.childNodes.length === 1 && el.childNodes[0].nodeType === 3) {
+    el.childNodes[0].nodeValue = el.childNodes[0].nodeValue.replace(/wy1234561995@outlook\.com/g, getContactEmail());
+  }
+  ['href','action','content'].forEach(attr => {
+    if (el.hasAttribute(attr) && el.getAttribute(attr).includes('wy1234561995')) {
+      el.setAttribute(attr, el.getAttribute(attr).replace(/wy1234561995@outlook\.com/g, getContactEmail()));
+    }
+  });
+});
 renderProducts();
 renderReviews();
 updateCart();
