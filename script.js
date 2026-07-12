@@ -206,48 +206,48 @@ const reviews = [
     stars: 5,
     text: 'The CloudRest bed is incredible. My senior golden retriever used to struggle getting up -?now she sleeps through the night and wakes up with so much more energy. Worth every penny.',
     author: 'Sarah M.',
-    location: '🇺🇸 California, USA',
-    avatar: '🐕',
+    location: ' California, USA',
+    avatar: '',
     avatarBg: '#e8d5c4'
   },
   {
     stars: 5,
     text: 'I was skeptical about the price but the Wool Cave is genuinely beautiful. It looks like a designer piece in our living room, and our cat hasn\'t left it since it arrived. Shipping to Australia was fast too!',
     author: 'James L.',
-    location: '🇦🇺 Sydney, Australia',
-    avatar: '🐱',
+    location: ' Sydney, Australia',
+    avatar: '',
     avatarBg: '#c8d6c0'
   },
   {
     stars: 5,
     text: 'Finally found a collar that doesn\'t irritate my dog\'s skin. The Italian leather is so soft and the brass hardware still looks brand new after 6 months of daily use. Ordering a second color.',
     author: 'Emma K.',
-    location: '🇬🇧 London, UK',
-    avatar: '🐩',
+    location: ' London, UK',
+    avatar: '',
     avatarBg: '#d4c5b9'
   },
   {
     stars: 4,
     text: 'Great quality products and the international shipping was surprisingly quick (8 days to Germany). The ceramic bowls are gorgeous -?they feel like something from a high-end kitchen store.',
     author: 'Markus W.',
-    location: '🇩🇪 Berlin, Germany',
-    avatar: '🐾',
+    location: ' Berlin, Germany',
+    avatar: '',
     avatarBg: '#c4d1d8'
   },
   {
     stars: 5,
     text: 'Ordered the Rope Tug set and Bounce Ball for our new puppy. Both are holding up amazingly well against his sharp little teeth. Love that everything is natural materials -?no weird chemical smells.',
     author: 'Yuki T.',
-    location: '🇯🇵 Tokyo, Japan',
-    avatar: '🐶',
+    location: ' Tokyo, Japan',
+    avatar: '',
     avatarBg: '#d0dcc8'
   },
   {
     stars: 5,
     text: 'The water fountain is a game changer. Our two cats drink so much more now and the filter lasts ages. Customer service was super helpful when I had a question about voltage compatibility.',
     author: 'Marie D.',
-    location: '🇫🇷 Paris, France',
-    avatar: '😺',
+    location: ' Paris, France',
+    avatar: '',
     avatarBg: '#c8dce0'
   }
 ];
@@ -310,7 +310,7 @@ function renderProducts(filter = 'all') {
 function renderReviews() {
   reviewGrid.innerHTML = reviews.map(r => `
     <div class="review-card">
-      <div class="review-stars">${'★'.repeat(r.stars) + '☆'.repeat(5 - r.stars)${'-?.repeat(5 - r.stars)}</div>
+      <div class="review-stars">${''.repeat(r.stars) + ''.repeat(5 - r.stars)${'-?.repeat(5 - r.stars)}</div>
       <p class="review-text">"${r.text}"</p>
       <div class="review-author">
         <div class="review-avatar" style="background:${r.avatarBg}">${r.avatar}</div>
@@ -544,13 +544,13 @@ document.getElementById('trackBtn').addEventListener('click', () => {
   const trackingNumber = input.value.trim();
   if (!trackingNumber) {
     result.style.display = 'block';
-    result.textContent = '⚠️ Please enter a tracking number.';
+    result.textContent = ' Please enter a tracking number.';
     result.style.color = '#c17a4e';
     return;
   }
   result.style.display = 'block';
   result.style.color = 'var(--color-slate)';
-  result.innerHTML = `📦 Tracking <strong>${trackingNumber}</strong>: Your package is currently in transit. Estimated delivery: <strong>3-? business days</strong>. For real-time tracking, please check the link sent to your email or contact <strong>wy1234561995@outlook.com</strong>.`;
+  result.innerHTML = ` Tracking <strong>${trackingNumber}</strong>: Your package is currently in transit. Estimated delivery: <strong>3-? business days</strong>. For real-time tracking, please check the link sent to your email or contact <strong>wy1234561995@outlook.com</strong>.`;
   input.value = '';
 });
 
@@ -558,7 +558,7 @@ document.getElementById('trackBtn').addEventListener('click', () => {
 newsletterForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const email = newsletterForm.querySelector('input').value;
-  showToast('📬 Welcome to the pack! Check your inbox for 10% off.');
+  showToast(' Welcome to the pack! Check your inbox for 10% off.');
   newsletterForm.reset();
 });
 
