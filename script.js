@@ -276,25 +276,27 @@ const newsletterForm = document.getElementById('newsletterForm');
 // -- Render Products -----------------------
 function renderProducts(filter = 'all') {
   const filtered = filter === 'all' ? products : products.filter(p => p.category === filter);
-  productGrid.innerHTML = filtered.map(p => `
-    <div class="product-card" data-id="${p.id}">
-      ${p.badge ? `<span class="product-badge ${p.badgeType}">${p.badge}</span>` : ''}
-      <div class="product-img" style="background:${p.bg}">
-        ${p.image ? `<img src="${p.image}" alt="${p.name}" class="product-photo" loading="lazy">` : p.emoji}
-      </div>
-      <div class="product-info">
-        <h3 class="product-name">${p.name}</h3>
-        <p class="product-meta">${p.desc}</p>
-        <div class="product-price-row">
-          <span class="product-price">$${p.price}</span>
-          ${p.originalPrice ? `<span class="product-price-old">$${p.originalPrice}</span>` : ''}
-        </div>
-        <div class="product-colors">
-          ${p.colors.map(c => `<span class="product-color" style="background:${c}" title="Color option"></span>`).join('')}
-        </div>
-      </div>
-    </div>
-  `).join('');
+  
+productGrid.innerHTML = filtered.map(p => {
+    let badgeHtml = p.badge ? '<span class="product-badge ' + p.badgeType + '">' + p.badge + '</span>' : '';
+    let imgHtml = p.image ? '<img src="' + p.image + '" alt="' + p.name + '" class="product-photo" loading="lazy">' : '<span class="product-emoji">' + (p.emoji || '') + '</span>';
+    let oldPriceHtml = p.originalPrice ? '<span class="product-price-old">$' + p.originalPrice + '</span>' : '';
+    let colorsHtml = p.colors.map(function(c) { return '<span class="product-color" style="background:' + c + '" title="Color option"></span>'; }).join('');
+    return '<div class="product-card" data-id="' + p.id + '">' +
+      badgeHtml +
+      '<div class="product-img" style="background:' + p.bg + '">' + imgHtml + '</div>' +
+      '<div class="product-info">' +
+        '<h3 class="product-name">' + p.name + '</h3>' +
+        '<p class="product-meta">' + p.desc + '</p>' +
+        '<div class="product-price-row">' +
+          '<span class="product-price">$' + p.price + '</span>' +
+          oldPriceHtml +
+        '</div>' +
+        '<div class="product-colors">' + colorsHtml + '</div>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+
 
   // Attach click to product images (quick add)
   document.querySelectorAll('.product-img').forEach(img => {
@@ -308,19 +310,23 @@ function renderProducts(filter = 'all') {
 
 // -- Render Reviews ------------------------
 function renderReviews() {
-  reviewGrid.innerHTML = reviews.map(r => `
-    <div class="review-card">
-      <div class="review-stars">${''.repeat(r.stars) + ''.repeat(5 - r.stars)${'-?.repeat(5 - r.stars)}</div>
-      <p class="review-text">"${r.text}"</p>
-      <div class="review-author">
-        <div class="review-avatar" style="background:${r.avatarBg}">${r.avatar}</div>
-        <div class="review-author-info">
-          <strong>${r.author}</strong>
-          <span>${r.location}</span>
-        </div>
-      </div>
-    </div>
-  `).join('');
+  
+reviewGrid.innerHTML = reviews.map(r => {
+    let starsHtml = '';
+    for (let i = 0; i < 5; i++) { starsHtml += i < r.stars ? '★' : '☆'; }
+    return '<div class="review-card">' +
+      '<div class="review-stars">' + starsHtml + '</div>' +
+      '<p class="review-text">"' + r.text + '"</p>' +
+      '<div class="review-author">' +
+        '<div class="review-avatar" style="background:' + r.avatarBg + '">' + r.avatar + '</div>' +
+        '<div class="review-author-info">' +
+          '<strong>' + r.author + '</strong>' +
+          '<span>' + r.location + '</span>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+
 }
 
 // -- Cart Functions ------------------------
