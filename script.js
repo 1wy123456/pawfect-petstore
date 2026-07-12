@@ -376,21 +376,27 @@ function updateCart() {
     cartItems.innerHTML = '<p class="cart-empty">Your cart is empty</p>';
     cartFooter.style.display = 'none';
   } else {
-    cartItems.innerHTML = cart.map(item => `
-      <div class="cart-item">
-        <div class="cart-item-img" style="background:${item.bg}">${item.emoji}</div>
-        <div class="cart-item-info">
-          <h4>${item.name}</h4>
-          <span class="cart-item-price">$${item.price}</span>
-          <div class="cart-item-qty">
-            <button onclick="updateQty(${item.id}, -1)">-?/button>
-            <span>${item.qty}</span>
-            <button onclick="updateQty(${item.id}, 1)">+</button>
-          </div>
-          <div class="cart-item-remove" onclick="removeFromCart(${item.id})">Remove</div>
-        </div>
-      </div>
-    `).join('');
+    cartItems.innerHTML = cart.map(function(item) {
+    var imgHtml = '';
+    if (item.image) {
+      imgHtml = '<img src="' + item.image + '" alt="' + item.name + '" class="cart-item-photo">';
+    } else if (item.emoji) {
+      imgHtml = '<span class="cart-item-emoji">' + item.emoji + '</span>';
+    }
+    return '<div class="cart-item">' +
+      '<div class="cart-item-img" style="background:' + item.bg + '">' + imgHtml + '</div>' +
+      '<div class="cart-item-info">' +
+        '<h4>' + item.name + '</h4>' +
+        '<span class="cart-item-price">$' + item.price + '</span>' +
+        '<div class="cart-item-qty">' +
+          '<button onclick="updateQty(' + item.id + ', -1)" class="qty-btn">-</button>' +
+          '<span class="qty-num">' + item.qty + '</span>' +
+          '<button onclick="updateQty(' + item.id + ', 1)" class="qty-btn">+</button>' +
+        '</div>' +
+        '<div class="cart-item-remove" onclick="removeFromCart(' + item.id + ')">Remove</div>' +
+      '</div>' +
+    '</div>';
+  }).join('');
     cartFooter.style.display = 'block';
     cartTotal.textContent = `$${totalPrice.toFixed(2)}`;
   }
