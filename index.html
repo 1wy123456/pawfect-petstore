@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PAWFECT — Premium Pet Lifestyle</title>
+<meta name="description" content="Premium pet supplies for discerning pet parents worldwide. Global shipping, natural materials, timeless design.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Announcement Bar -->
+<div class="announcement-bar">
+  <div class="announcement-slider" id="announcementSlider">
+    <span>🌍 Free worldwide shipping on orders over $150</span>
+    <span>🐾 New arrivals: Autumn/Winter collection just dropped</span>
+    <span>💚 100% eco-friendly materials & ethical sourcing</span>
+  </div>
+</div>
+
+<!-- Header / Navigation -->
+<header class="header" id="header">
+  <div class="container header-inner">
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-left">
+      <a href="#shop">Shop</a>
+      <a href="#about">About</a>
+      <a href="#collections">Collections</a>
+    </nav>
+    <a href="#" class="logo">PAWFECT</a>
+    <nav class="nav-right">
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
+      <button class="cart-btn" id="cartBtn" aria-label="Cart">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/>
+        </svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-inner">
+    <a href="#shop" class="mobile-link">Shop</a>
+    <a href="#about" class="mobile-link">About</a>
+    <a href="#collections" class="mobile-link">Collections</a>
+    <a href="#reviews" class="mobile-link">Reviews</a>
+    <a href="#faq" class="mobile-link">FAQ</a>
+  </div>
+</div>
+
+<!-- Cart Sidebar -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h3>Your Cart</h3>
+    <button class="cart-close" id="cartClose">&times;</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <p class="cart-empty">Your cart is empty</p>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-total">
+      <span>Subtotal</span>
+      <span id="cartTotal">$0.00</span>
+    </div>
+    <p class="cart-shipping">Shipping calculated at checkout</p>
+    <button class="btn btn-primary btn-full" id="checkoutBtn">Proceed to Payment</button>
+  </div>
+</div>
+
+<!-- PayPal Payment Modal -->
+<div class="payment-overlay" id="paymentOverlay"></div>
+<div class="payment-modal" id="paymentModal">
+  <button class="payment-close" id="paymentClose">&times;</button>
+  <div class="payment-content">
+    <div class="payment-header">
+      <span class="payment-lock">🔒</span>
+      <h3>Secure PayPal Checkout</h3>
+      <p>Scan the QR code below with your phone camera or PayPal app to complete payment</p>
+    </div>
+    <div class="payment-qr-wrapper">
+      <img src="paypal-qr.png" alt="PayPal Payment QR Code" class="payment-qr">
+    </div>
+    <div class="payment-order-summary">
+      <div class="payment-row"><span>Order Total</span><span id="paymentTotal">$0.00</span></div>
+    </div>
+    <div class="payment-steps">
+      <div class="payment-step"><span class="step-num">1</span> Open PayPal or camera app</div>
+      <div class="payment-step"><span class="step-num">2</span> Scan the QR code above</div>
+      <div class="payment-step"><span class="step-num">3</span> Complete payment & note your order ID</div>
+    </div>
+    <p class="payment-note">After payment, please email your order details to <strong>support@pawfect.com</strong> and we'll ship within 1-2 business days.</p>
+  </div>
+</div>
+
+<!-- Hero Section -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="container hero-content">
+    <span class="hero-tag fade-up">— Premium Pet Lifestyle —</span>
+    <h1 class="hero-title fade-up delay-1">Where Every Pet<br>Feels at <em>Home</em></h1>
+    <p class="hero-desc fade-up delay-2">Curated essentials for modern pet families. Natural materials, timeless design, shipped worldwide from our studio.</p>
+    <div class="hero-actions fade-up delay-3">
+      <a href="#shop" class="btn btn-primary">Explore Collection</a>
+      <a href="#about" class="btn btn-outline">Our Story</a>
+    </div>
+    <div class="hero-stats fade-up delay-4">
+      <div class="stat"><span class="stat-num">50+</span><span class="stat-label">Countries</span></div>
+      <div class="stat"><span class="stat-num">15k+</span><span class="stat-label">Happy Pets</span></div>
+      <div class="stat"><span class="stat-num">4.9</span><span class="stat-label">Rating</span></div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- Trust Bar -->
+<section class="trust-bar">
+  <div class="container">
+    <div class="trust-items">
+      <div class="trust-item">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        <span>Free Global Shipping over $150</span>
+      </div>
+      <div class="trust-item">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>30-Day Money-Back Guarantee</span>
+      </div>
+      <div class="trust-item">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        <span>Secure Checkout & SSL Encrypted</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Categories -->
+<section class="categories" id="shop">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Shop by Category</span>
+      <h2 class="section-title">Essentials for<br>Every Companion</h2>
+    </div>
+    <div class="category-grid">
+      <a href="#" class="category-card" data-category="beds">
+        <div class="category-img" style="background:linear-gradient(135deg, #e8d5c4, #d4a574)">
+          <div class="category-icon">🛏️</div>
+        </div>
+        <div class="category-info">
+          <h3>Beds & Mats</h3>
+          <span class="category-arrow">→</span>
+        </div>
+      </a>
+      <a href="#" class="category-card" data-category="toys">
+        <div class="category-img" style="background:linear-gradient(135deg, #c8d6c0, #8a9a7b)">
+          <div class="category-icon">🎾</div>
+        </div>
+        <div class="category-info">
+          <h3>Toys & Play</h3>
+          <span class="category-arrow">→</span>
+        </div>
+      </a>
+      <a href="#" class="category-card" data-category="feeding">
+        <div class="category-img" style="background:linear-gradient(135deg, #d4c5b9, #b8956a)">
+          <div class="category-icon">🥣</div>
+        </div>
+        <div class="category-info">
+          <h3>Bowls & Feeders</h3>
+          <span class="category-arrow">→</span>
+        </div>
+      </a>
+      <a href="#" class="category-card" data-category="accessories">
+        <div class="category-img" style="background:linear-gradient(135deg, #c4d1d8, #7a8e9b)">
+          <div class="category-icon">🎀</div>
+        </div>
+        <div class="category-info">
+          <h3>Collars & Leashes</h3>
+          <span class="category-arrow">→</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Products Section -->
+<section class="products" id="collections">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Bestsellers</span>
+      <h2 class="section-title">Loved by Pets<br>& Their Humans</h2>
+    </div>
+    <div class="product-filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="beds">Beds</button>
+      <button class="filter-btn" data-filter="toys">Toys</button>
+      <button class="filter-btn" data-filter="feeding">Feeding</button>
+      <button class="filter-btn" data-filter="accessories">Accessories</button>
+    </div>
+    <div class="product-grid" id="productGrid">
+      <!-- Products injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- About / Story -->
+<section class="about" id="about">
+  <div class="container about-inner">
+    <div class="about-visual">
+      <div class="about-shape"></div>
+      <div class="about-img-placeholder">
+        <span>🐕</span>
+      </div>
+    </div>
+    <div class="about-text">
+      <span class="section-tag">Our Philosophy</span>
+      <h2 class="section-title">Crafted with Love,<br>Designed to Last</h2>
+      <p>We believe pets deserve better than mass-produced plastic. Every PAWFECT product is designed in our Barcelona studio using natural, sustainable materials — because your companion deserves the same quality you'd choose for yourself.</p>
+      <div class="about-features">
+        <div class="about-feat">
+          <span class="feat-icon">🌿</span>
+          <div><strong>Natural Materials</strong><br>Organic cotton, bamboo, recycled wool</div>
+        </div>
+        <div class="about-feat">
+          <span class="feat-icon">🧵</span>
+          <div><strong>Handcrafted</strong><br>Each piece made by skilled artisans</div>
+        </div>
+        <div class="about-feat">
+          <span class="feat-icon">🌍</span>
+          <div><strong>Carbon Neutral</strong><br>Offset shipping & eco-packaging</div>
+        </div>
+      </div>
+      <a href="#" class="btn btn-outline-dark">Learn More About Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- Reviews -->
+<section class="reviews" id="reviews">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">What They Say</span>
+      <h2 class="section-title">Pawsitive<br>Feedback</h2>
+    </div>
+    <div class="review-grid" id="reviewGrid">
+      <!-- Reviews injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter -->
+<section class="newsletter">
+  <div class="container newsletter-inner">
+    <div class="newsletter-text">
+      <h2>Join the Pack</h2>
+      <p>Get 10% off your first order + early access to new collections and pet care tips.</p>
+    </div>
+    <form class="newsletter-form" id="newsletterForm">
+      <input type="email" placeholder="Your email address" required>
+      <button type="submit" class="btn btn-primary">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Help Center</span>
+      <h2 class="section-title">Frequently<br>Asked Questions</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question">Where do you ship to? <span class="faq-icon">+</span></button>
+        <div class="faq-answer"><p>We ship to over 50 countries worldwide including the US, Canada, EU, UK, Australia, Japan, South Korea, and many more. All orders are dispatched within 1-2 business days from our fulfillment centers.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">What payment methods do you accept? <span class="faq-icon">+</span></button>
+        <div class="faq-answer"><p>We accept Visa, Mastercard, American Express, PayPal, Apple Pay, Google Pay, and bank transfers. All transactions are processed securely with SSL encryption.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">What is your return policy? <span class="faq-icon">+</span></button>
+        <div class="faq-answer"><p>We offer a 30-day hassle-free return policy. If you or your pet aren't completely satisfied, simply contact our support team and we'll arrange a free return and full refund.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Are your products safe for pets? <span class="faq-icon">+</span></button>
+        <div class="faq-answer"><p>Absolutely. All our products are made with non-toxic, pet-safe materials and undergo rigorous safety testing. We use OEKO-TEX certified fabrics and food-grade silicone for all feeding products.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">How long does international shipping take? <span class="faq-icon">+</span></button>
+        <div class="faq-answer"><p>Standard international shipping takes 7-14 business days. Express shipping (3-5 business days) is available for most destinations. You'll receive a tracking number as soon as your order ships.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Do you offer wholesale or bulk orders? <span class="faq-icon">+</span></button>
+        <div class="faq-answer"><p>Yes! We partner with pet boutiques, hotels, and retailers worldwide. Please contact our wholesale team at wholesale@pawfect.com for pricing and catalog information.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="footer-logo">PAWFECT</a>
+      <p>Premium pet lifestyle brand. Designed in Barcelona, loved worldwide.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="Facebook">FB</a>
+        <a href="#" aria-label="Pinterest">PT</a>
+        <a href="#" aria-label="TikTok">TK</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <a href="#">Beds & Mats</a>
+      <a href="#">Toys & Play</a>
+      <a href="#">Bowls & Feeders</a>
+      <a href="#">Collars & Leashes</a>
+      <a href="#">Gift Cards</a>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <a href="#" id="shippingLink">Shipping Info</a>
+      <a href="#" id="returnsLink">Returns & Exchanges</a>
+      <a href="#" id="sizeLink">Size Guide</a>
+      <a href="#" id="contactLink">Contact Us</a>
+      <a href="#" id="trackLink">Track Order</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#">Our Story</a>
+      <a href="#">Sustainability</a>
+      <a href="#">Wholesale</a>
+      <a href="#">Careers</a>
+      <a href="#">Press Kit</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>&copy; 2026 PAWFECT. All rights reserved.</span>
+    <div class="footer-legal">
+      <a href="#" id="privacyLink">Privacy Policy</a>
+      <a href="#" id="termsLink">Terms of Service</a>
+    </div>
+    <div class="footer-payments">
+      <span>Visa</span><span>MC</span><span>Amex</span><span>PayPal</span><span>Apple Pay</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Privacy Policy Modal -->
+<div class="legal-overlay" id="legalOverlay"></div>
+<div class="legal-modal" id="privacyModal">
+  <button class="legal-close" id="privacyClose">&times;</button>
+  <div class="legal-content">
+    <h2>Privacy Policy</h2>
+    <p class="legal-date">Last updated: July 12, 2026</p>
+
+    <h3>1. Information We Collect</h3>
+    <p>When you place an order or subscribe to our newsletter, we collect: your name, email address, shipping address, and payment information. Payment details are processed securely through PayPal and are never stored on our servers.</p>
+
+    <h3>2. How We Use Your Information</h3>
+    <p>We use your information to process orders, communicate about your purchase, send shipping updates, and (with your consent) share new product launches and promotions. We never sell or rent your personal data to third parties.</p>
+
+    <h3>3. Data Security</h3>
+    <p>All transactions are processed through PayPal's secure payment gateway with industry-standard SSL encryption. We implement appropriate technical and organizational measures to protect your personal data against unauthorized access, alteration, disclosure, or destruction.</p>
+
+    <h3>4. Cookies</h3>
+    <p>Our website uses essential cookies to maintain your shopping cart session and remember your preferences. We do not use tracking cookies for advertising purposes. You can disable cookies in your browser settings, though this may affect site functionality.</p>
+
+    <h3>5. Third-Party Services</h3>
+    <p>We use PayPal for payment processing. PayPal's privacy policy governs the handling of your payment data during checkout. We recommend reviewing PayPal's privacy policy at paypal.com for more information.</p>
+
+    <h3>6. Your Rights</h3>
+    <p>You have the right to access, correct, or delete your personal data at any time. To exercise these rights, or if you have any privacy-related questions, please contact us at <strong>privacy@pawfect.com</strong>.</p>
+
+    <h3>7. International Transfers</h3>
+    <p>As a global brand, your data may be transferred and processed in countries outside your country of residence. We ensure appropriate safeguards are in place for such transfers in compliance with applicable data protection laws, including GDPR.</p>
+
+    <h3>8. Children's Privacy</h3>
+    <p>Our services are not directed to individuals under the age of 16. We do not knowingly collect personal information from children. If you become aware that a child has provided us with personal data, please contact us immediately.</p>
+
+    <h3>9. Changes to This Policy</h3>
+    <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated revision date. We encourage you to review this policy periodically.</p>
+
+    <h3>10. Contact Us</h3>
+    <p>For any questions about this Privacy Policy, please contact us at:<br><strong>Email:</strong> privacy@pawfect.com<br><strong>Address:</strong> PAWFECT Studio, Carrer de Balmes 45, 08007 Barcelona, Spain</p>
+  </div>
+</div>
+
+<!-- Terms of Service Modal -->
+<div class="legal-modal" id="termsModal">
+  <button class="legal-close" id="termsClose">&times;</button>
+  <div class="legal-content">
+    <h2>Terms of Service</h2>
+    <p class="legal-date">Last updated: July 12, 2026</p>
+
+    <h3>1. Acceptance of Terms</h3>
+    <p>By accessing or using the PAWFECT website and purchasing our products, you agree to be bound by these Terms of Service. If you do not agree, please do not use our services.</p>
+
+    <h3>2. Products & Pricing</h3>
+    <p>All prices are listed in US Dollars (USD) and are subject to change without notice. We reserve the right to modify or discontinue any product at any time. Product images are for illustration purposes; actual products may vary slightly in color and appearance.</p>
+
+    <h3>3. Orders & Payment</h3>
+    <p>By placing an order, you agree to provide accurate and complete information. All payments are processed securely through PayPal. Orders are confirmed via email upon successful payment. We reserve the right to refuse or cancel any order at our discretion.</p>
+
+    <h3>4. Shipping & Delivery</h3>
+    <p>We ship to over 50 countries worldwide. Standard international shipping takes 7-14 business days. Express shipping (3-5 business days) is available for most destinations. Shipping costs are calculated at checkout. Free shipping is available on orders over $150 USD.</p>
+    <p>Customers are responsible for any customs duties, taxes, or import fees imposed by their country. PAWFECT is not responsible for delays caused by customs clearance.</p>
+
+    <h3>5. Returns & Refunds</h3>
+    <p>We offer a 30-day return policy from the date of delivery. To be eligible for a return, items must be unused, in original packaging, and in the same condition as received. To initiate a return, contact us at <strong>returns@pawfect.com</strong>.</p>
+    <p>Refunds are processed within 5-10 business days after we receive and inspect the returned item. Original shipping charges are non-refundable. Return shipping is free for defective or incorrect items.</p>
+
+    <h3>6. Intellectual Property</h3>
+    <p>All content on this website, including text, graphics, logos, images, product designs, and software, is the property of PAWFECT and is protected by international copyright and trademark laws. Unauthorized use is strictly prohibited.</p>
+
+    <h3>7. Limitation of Liability</h3>
+    <p>PAWFECT shall not be liable for any indirect, incidental, special, or consequential damages arising from the use of our products or website. Our total liability for any claim shall not exceed the amount paid for the product in question.</p>
+
+    <h3>8. Product Safety</h3>
+    <p>All PAWFECT products are made with non-toxic, pet-safe materials and undergo rigorous safety testing. However, pet products should always be used under supervision. PAWFECT is not liable for injuries resulting from misuse or lack of supervision.</p>
+
+    <h3>9. Governing Law</h3>
+    <p>These Terms shall be governed by and construed in accordance with the laws of Spain. Any disputes arising from these terms shall be subject to the exclusive jurisdiction of the courts of Barcelona, Spain.</p>
+
+    <h3>10. Contact Information</h3>
+    <p>For any questions about these Terms of Service, please contact us at:<br><strong>Email:</strong> legal@pawfect.com<br><strong>Address:</strong> PAWFECT Studio, Carrer de Balmes 45, 08007 Barcelona, Spain</p>
+  </div>
+</div>
+
+<!-- Contact Us Modal -->
+<div class="legal-modal" id="contactModal">
+  <button class="legal-close" id="contactClose">&times;</button>
+  <div class="legal-content">
+    <h2>Contact Us</h2>
+    <p class="legal-date">We'd love to hear from you!</p>
+
+    <h3>Customer Support</h3>
+    <p>For order inquiries, product questions, or general support, our team is here to help Monday through Friday, 9:00 AM – 6:00 PM (CET).</p>
+    <p><strong>Email:</strong> support@pawfect.com<br><strong>Response Time:</strong> Within 24 hours</p>
+
+    <h3>Wholesale Inquiries</h3>
+    <p>Interested in carrying PAWFECT products in your store? We partner with pet boutiques, hotels, and retailers worldwide.</p>
+    <p><strong>Email:</strong> wholesale@pawfect.com</p>
+
+    <h3>Press & Media</h3>
+    <p>For press inquiries, collaboration requests, or media kits, please reach out to our PR team.</p>
+    <p><strong>Email:</strong> press@pawfect.com</p>
+
+    <h3>Our Studio</h3>
+    <p><strong>PAWFECT Studio</strong><br>Carrer de Balmes 45<br>08007 Barcelona<br>Spain</p>
+
+    <h3>Social Media</h3>
+    <p>Follow us on Instagram, Facebook, Pinterest, and TikTok @pawfectpet for daily inspiration, new arrivals, and behind-the-scenes content.</p>
+  </div>
+</div>
+
+<!-- Shipping Info Modal -->
+<div class="legal-modal" id="shippingModal">
+  <button class="legal-close" id="shippingClose">&times;</button>
+  <div class="legal-content">
+    <h2>Shipping Information</h2>
+    <p class="legal-date">Last updated: July 12, 2026</p>
+
+    <h3>Where We Ship</h3>
+    <p>We proudly ship to over 50 countries worldwide, including:</p>
+    <p><strong>North America:</strong> United States, Canada, Mexico<br><strong>Europe:</strong> United Kingdom, Germany, France, Italy, Spain, Netherlands, Belgium, Sweden, Norway, Denmark, Switzerland, Austria, Poland, and more<br><strong>Asia-Pacific:</strong> Australia, New Zealand, Japan, South Korea, Singapore, Hong Kong, Taiwan<br><strong>Middle East:</strong> UAE, Saudi Arabia, Israel<br><strong>Others:</strong> Brazil, South Africa, and more</p>
+    <p>Don't see your country? Contact us at <strong>support@pawfect.com</strong> and we'll do our best to accommodate.</p>
+
+    <h3>Shipping Methods & Delivery Times</h3>
+    <p><strong>Standard International:</strong> 7–14 business days — $12.99 (FREE on orders over $150)<br><strong>Express International:</strong> 3–5 business days — $24.99<br><strong>Domestic (Spain):</strong> 2–3 business days — $5.99 (FREE on orders over $50)</p>
+
+    <h3>Processing Time</h3>
+    <p>All orders are processed within 1–2 business days. Orders placed after 2:00 PM CET on Friday will be processed the following Monday. You will receive a confirmation email with tracking information as soon as your order ships.</p>
+
+    <h3>Customs & Import Duties</h3>
+    <p>International orders may be subject to customs duties, taxes, or import fees imposed by the destination country. These charges are the responsibility of the customer. PAWFECT is not responsible for delays caused by customs clearance. We recommend checking with your local customs office for estimated fees before ordering.</p>
+
+    <h3>Tracking Your Order</h3>
+    <p>Once your order ships, you'll receive a tracking number via email. You can track your order on our website or directly through the carrier's website. If you haven't received tracking info within 3 business days, please check your spam folder or contact us.</p>
+
+    <h3>Lost or Damaged Packages</h3>
+    <p>If your package is lost in transit or arrives damaged, please contact us within 7 days of the expected delivery date. We'll work with the carrier to resolve the issue and send a replacement or issue a full refund.</p>
+  </div>
+</div>
+
+<!-- Returns & Exchanges Modal -->
+<div class="legal-modal" id="returnsModal">
+  <button class="legal-close" id="returnsClose">&times;</button>
+  <div class="legal-content">
+    <h2>Returns & Exchanges</h2>
+    <p class="legal-date">Last updated: July 12, 2026</p>
+
+    <h3>30-Day Return Policy</h3>
+    <p>We want you and your pet to be completely happy with your purchase. If you're not satisfied for any reason, you may return most items within 30 days of delivery for a full refund or exchange.</p>
+
+    <h3>Return Conditions</h3>
+    <p>To be eligible for a return, items must be:<br>• Unused and in the same condition as received<br>• In original packaging with all tags attached<br>• Returned within 30 days of delivery</p>
+    <p>Note: For hygiene reasons, certain items such as opened food products or used grooming tools cannot be returned unless defective.</p>
+
+    <h3>How to Return</h3>
+    <p>1. Email <strong>returns@pawfect.com</strong> with your order number and reason for return<br>2. We'll send you a prepaid return shipping label (for defective/incorrect items) or return instructions<br>3. Pack the item securely in its original packaging<br>4. Drop off at your local post office or schedule a pickup</p>
+
+    <h3>Refunds</h3>
+    <p>Once we receive and inspect your return, we'll process your refund within 5–10 business days. Refunds are issued to the original payment method (PayPal). Original shipping charges are non-refundable unless the return is due to our error or a defective product.</p>
+
+    <h3>Exchanges</h3>
+    <p>Need a different size, color, or product? Simply return your original item following the steps above and place a new order for the item you'd like. This is the fastest way to get what you need. We'll waive shipping on your new order — just mention it in your return email.</p>
+
+    <h3>Defective or Incorrect Items</h3>
+    <p>If you received a defective or incorrect item, we sincerely apologize. Contact us immediately at <strong>returns@pawfect.com</strong> with photos of the issue. We'll send a replacement at no cost or issue a full refund including shipping — your choice.</p>
+  </div>
+</div>
+
+<!-- Size Guide Modal -->
+<div class="legal-modal" id="sizeModal">
+  <button class="legal-close" id="sizeClose">&times;</button>
+  <div class="legal-content">
+    <h2>Size Guide</h2>
+    <p class="legal-date">Find the perfect fit for your companion</p>
+
+    <h3>Beds & Mats</h3>
+    <p>Measure your pet from nose to tail while they're sleeping in their natural position. Add 10–15 cm (4–6 inches) for comfortable stretching room.</p>
+    <p><strong>Small (S):</strong> Up to 60cm / 24" — Ideal for cats, small breeds (Chihuahua, Yorkie, Shih Tzu)<br><strong>Medium (M):</strong> 60–90cm / 24–35" — Beagle, Cocker Spaniel, French Bulldog<br><strong>Large (L):</strong> 90–120cm / 35–47" — Labrador, Golden Retriever, German Shepherd<br><strong>Extra Large (XL):</strong> 120cm+ / 47"+ — Great Dane, Mastiff, multi-pet households</p>
+
+    <h3>Collars</h3>
+    <p>Measure around the middle of your pet's neck with a soft tape measure. You should be able to fit two fingers between the collar and your pet's neck.</p>
+    <p><strong>XS:</strong> 20–28cm / 8–11" — Cats, toy breeds<br><strong>S:</strong> 28–38cm / 11–15" — Small breeds<br><strong>M:</strong> 38–50cm / 15–20" — Medium breeds<br><strong>L:</strong> 50–65cm / 20–26" — Large breeds<br><strong>XL:</strong> 65–80cm / 26–31" — Extra large breeds</p>
+
+    <h3>Bowls</h3>
+    <p>Choose based on your pet's size and eating habits. Elevated bowls are recommended for medium to large breeds to promote better digestion and posture.</p>
+    <p><strong>Small Bowl:</strong> 300ml / 10oz — Cats, toy breeds<br><strong>Medium Bowl:</strong> 600ml / 20oz — Small to medium breeds<br><strong>Large Bowl:</strong> 1200ml / 40oz — Medium to large breeds<br><strong>Extra Large Bowl:</strong> 2000ml / 68oz — Large to extra large breeds</p>
+
+    <h3>Need Help?</h3>
+    <p>Not sure which size to choose? Email us at <strong>support@pawfect.com</strong> with your pet's breed, weight, and measurements, and we'll recommend the perfect fit.</p>
+  </div>
+</div>
+
+<!-- Track Order Modal -->
+<div class="legal-modal" id="trackModal">
+  <button class="legal-close" id="trackClose">&times;</button>
+  <div class="legal-content">
+    <h2>Track Your Order</h2>
+    <p class="legal-date">Follow your package every step of the way</p>
+
+    <h3>How to Track</h3>
+    <p>Once your order ships, you'll receive a confirmation email with your tracking number and a direct link to track your package. You can also track your order here:</p>
+
+    <div class="track-form">
+      <input type="text" id="trackInput" placeholder="Enter your tracking number" class="track-input">
+      <button class="btn btn-primary btn-sm" id="trackBtn">Track</button>
+    </div>
+    <p id="trackResult" style="display:none; margin-top:16px; padding:12px 16px; background:var(--color-cream); border-radius:var(--radius-md); font-size:0.88rem;"></p>
+
+    <h3>Tracking Status Guide</h3>
+    <p><strong>Order Confirmed:</strong> We've received your order and payment.<br><strong>Processing:</strong> Your order is being prepared at our fulfillment center.<br><strong>Shipped:</strong> Your package is on its way! Tracking details have been sent to your email.<br><strong>In Transit:</strong> Your package is moving through the carrier network.<br><strong>Out for Delivery:</strong> Your package is on the final delivery vehicle.<br><strong>Delivered:</strong> Your package has been delivered.</p>
+
+    <h3>Common Questions</h3>
+    <p><strong>No tracking number yet?</strong> Tracking numbers are sent within 1–2 business days after your order is placed. Check your spam folder or contact <strong>support@pawfect.com</strong> if you haven't received it after 3 business days.</p>
+    <p><strong>Tracking not updating?</strong> International tracking may take 24–48 hours to show movement after the initial scan. If your tracking hasn't updated for 5+ business days, please contact us.</p>
+    <p><strong>Package marked delivered but not received?</strong> Check with neighbors, your building manager, or local post office. If you still can't locate it, contact us within 48 hours.</p>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
