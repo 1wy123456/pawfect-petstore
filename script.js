@@ -203,6 +203,30 @@ const products = [
     badgeType: null,
     colors: ['#c8b498', '#e5dcd0', '#9b7a5a'],
     desc: 'Sterling silver pendant, tri-color calico enamel painting from your cat photo'
+  },
+  {
+    id: 17,
+    name: 'Feather Flyer Cat Teaser Wand',
+    category: 'toys',
+    price: 13.99,
+    image: 'images/cat-teaser-red-feather.png',
+    bg: 'linear-gradient(135deg, #fce4e4, #e8a0a0)',
+    badge: 'New',
+    badgeType: 'bestseller',
+    colors: ['#e84040', '#f5a0a0', '#ffffff'],
+    desc: 'Telescopic wand up to 175cm, red feathers, 51cm string — irresistible feline prey mimic'
+  },
+  {
+    id: 18,
+    name: 'Feather Flyer Cat Teaser Wand',
+    category: 'toys',
+    price: 13.99,
+    image: 'images/cat-teaser-hot-pink.png',
+    bg: 'linear-gradient(135deg, #f8e0f0, #e890c0)',
+    badge: 'New',
+    badgeType: 'bestseller',
+    colors: ['#e85090', '#f5a0c8', '#ffffff'],
+    desc: 'Telescopic wand up to 175cm, hot pink feathers, 51cm string — endless chase & pounce fun'
   }
 ];
 
