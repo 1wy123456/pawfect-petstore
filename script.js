@@ -1,5 +1,5 @@
 /* ============================================
-   PAWFECT �?Interactive Scripts
+   PAWFECT �?Interactive Scripts
    ============================================ */
 
 // ── Product Data ──────────────────────────
@@ -9,7 +9,7 @@ const products = [
     name: 'CloudRest Orthopedic Bed',
     category: 'beds',
     price: 89,
-    emoji: '🛏�?,
+    emoji: '🛏�?,
     bg: 'linear-gradient(135deg, #e8d5c4, #d4a574)',
     badge: 'Bestseller',
     badgeType: 'bestseller',
@@ -34,7 +34,7 @@ const products = [
     name: 'Bounce Natural Rubber Ball',
     category: 'toys',
     price: 18,
-    emoji: '�?,
+    emoji: '�?,
     bg: 'linear-gradient(135deg, #c8d6c0, #8a9a7b)',
     badge: null,
     badgeType: null,
@@ -143,12 +143,60 @@ const products = [
     name: 'Pet Water Fountain',
     category: 'feeding',
     price: 59,
-    emoji: '�?,
+    emoji: '�?,
     bg: 'linear-gradient(135deg, #c8dce0, #7aa8b0)',
     badge: 'New',
     badgeType: 'bestseller',
     colors: ['#7aa8b0', '#c8dce0', '#f5f5f5'],
     desc: 'Triple filtration, ultra-quiet pump, 2.5L'
+  },
+  {
+    id: 13,
+    name: 'Custom Pet Portrait Necklace',
+    category: 'jewelry',
+    price: 79,
+    image: 'images/necklace-cat-orange.jpg',
+    bg: 'linear-gradient(135deg, #e8e0d8, #c4b8a8)',
+    badge: 'Bestseller',
+    badgeType: 'bestseller',
+    colors: ['#d4c4b0', '#c4a882', '#e8ddd0'],
+    desc: 'Hand-sculpted sterling silver, custom enamel painting from your pet photo'
+  },
+  {
+    id: 14,
+    name: 'Custom French Bulldog Necklace',
+    category: 'jewelry',
+    price: 79,
+    image: 'images/necklace-frenchie.jpg',
+    bg: 'linear-gradient(135deg, #e5ddd5, #c8b898)',
+    badge: null,
+    badgeType: null,
+    colors: ['#c8b898', '#e5ddd5', '#a89070'],
+    desc: 'Sterling silver pendant, hand-painted enamel details from your Frenchie photo'
+  },
+  {
+    id: 15,
+    name: 'Custom Tabby Cat Necklace',
+    category: 'jewelry',
+    price: 79,
+    image: 'images/necklace-cat-tabby.jpg',
+    bg: 'linear-gradient(135deg, #e0dcd5, #b5a898)',
+    badge: 'Popular',
+    badgeType: 'bestseller',
+    colors: ['#b5a898', '#e0dcd5', '#8a7a6a'],
+    desc: 'Handcrafted silver charm, detailed tabby stripe enamelwork from your cat photo'
+  },
+  {
+    id: 16,
+    name: 'Custom Calico Cat Necklace',
+    category: 'jewelry',
+    price: 79,
+    image: 'images/necklace-cat-calico.jpg',
+    bg: 'linear-gradient(135deg, #e5dcd0, #c8b498)',
+    badge: null,
+    badgeType: null,
+    colors: ['#c8b498', '#e5dcd0', '#9b7a5a'],
+    desc: 'Sterling silver pendant, tri-color calico enamel painting from your cat photo'
   }
 ];
 
@@ -156,7 +204,7 @@ const products = [
 const reviews = [
   {
     stars: 5,
-    text: 'The CloudRest bed is incredible. My senior golden retriever used to struggle getting up �?now she sleeps through the night and wakes up with so much more energy. Worth every penny.',
+    text: 'The CloudRest bed is incredible. My senior golden retriever used to struggle getting up �?now she sleeps through the night and wakes up with so much more energy. Worth every penny.',
     author: 'Sarah M.',
     location: '🇺🇸 California, USA',
     avatar: '🐕',
@@ -180,7 +228,7 @@ const reviews = [
   },
   {
     stars: 4,
-    text: 'Great quality products and the international shipping was surprisingly quick (8 days to Germany). The ceramic bowls are gorgeous �?they feel like something from a high-end kitchen store.',
+    text: 'Great quality products and the international shipping was surprisingly quick (8 days to Germany). The ceramic bowls are gorgeous �?they feel like something from a high-end kitchen store.',
     author: 'Markus W.',
     location: '🇩🇪 Berlin, Germany',
     avatar: '🐾',
@@ -188,7 +236,7 @@ const reviews = [
   },
   {
     stars: 5,
-    text: 'Ordered the Rope Tug set and Bounce Ball for our new puppy. Both are holding up amazingly well against his sharp little teeth. Love that everything is natural materials �?no weird chemical smells.',
+    text: 'Ordered the Rope Tug set and Bounce Ball for our new puppy. Both are holding up amazingly well against his sharp little teeth. Love that everything is natural materials �?no weird chemical smells.',
     author: 'Yuki T.',
     location: '🇯🇵 Tokyo, Japan',
     avatar: '🐶',
@@ -232,7 +280,7 @@ function renderProducts(filter = 'all') {
     <div class="product-card" data-id="${p.id}">
       ${p.badge ? `<span class="product-badge ${p.badgeType}">${p.badge}</span>` : ''}
       <div class="product-img" style="background:${p.bg}">
-        ${p.emoji}
+        ${p.image ? `<img src="${p.image}" alt="${p.name}" class="product-photo" loading="lazy">` : p.emoji}
       </div>
       <div class="product-info">
         <h3 class="product-name">${p.name}</h3>
@@ -262,7 +310,7 @@ function renderProducts(filter = 'all') {
 function renderReviews() {
   reviewGrid.innerHTML = reviews.map(r => `
     <div class="review-card">
-      <div class="review-stars">${'�?.repeat(r.stars)}${'�?.repeat(5 - r.stars)}</div>
+      <div class="review-stars">${'�?.repeat(r.stars)}${'�?.repeat(5 - r.stars)}</div>
       <p class="review-text">"${r.text}"</p>
       <div class="review-author">
         <div class="review-avatar" style="background:${r.avatarBg}">${r.avatar}</div>
@@ -323,7 +371,7 @@ function updateCart() {
           <h4>${item.name}</h4>
           <span class="cart-item-price">$${item.price}</span>
           <div class="cart-item-qty">
-            <button onclick="updateQty(${item.id}, -1)">�?/button>
+            <button onclick="updateQty(${item.id}, -1)">�?/button>
             <span>${item.qty}</span>
             <button onclick="updateQty(${item.id}, 1)">+</button>
           </div>
@@ -502,7 +550,7 @@ document.getElementById('trackBtn').addEventListener('click', () => {
   }
   result.style.display = 'block';
   result.style.color = 'var(--color-slate)';
-  result.innerHTML = `📦 Tracking <strong>${trackingNumber}</strong>: Your package is currently in transit. Estimated delivery: <strong>3�? business days</strong>. For real-time tracking, please check the link sent to your email or contact <strong>wy1234561995@outlook.com</strong>.`;
+  result.innerHTML = `📦 Tracking <strong>${trackingNumber}</strong>: Your package is currently in transit. Estimated delivery: <strong>3�? business days</strong>. For real-time tracking, please check the link sent to your email or contact <strong>wy1234561995@outlook.com</strong>.`;
   input.value = '';
 });
 

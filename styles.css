@@ -603,6 +603,15 @@ ul, ol { list-style: none; }
   position: relative;
   overflow: hidden;
 }
+.product-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.product-card:hover .product-photo {
+  transform: scale(1.05);
+}
 .product-img::after {
   content: 'Quick Add';
   position: absolute;
