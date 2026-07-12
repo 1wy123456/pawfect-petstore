@@ -310,7 +310,7 @@ function renderProducts(filter = 'all') {
 function renderReviews() {
   reviewGrid.innerHTML = reviews.map(r => `
     <div class="review-card">
-      <div class="review-stars">${'-?.repeat(r.stars)}${'-?.repeat(5 - r.stars)}</div>
+      <div class="review-stars">${'★'.repeat(r.stars) + '☆'.repeat(5 - r.stars)${'-?.repeat(5 - r.stars)}</div>
       <p class="review-text">"${r.text}"</p>
       <div class="review-author">
         <div class="review-avatar" style="background:${r.avatarBg}">${r.avatar}</div>
@@ -333,7 +333,7 @@ function addToCart(productId) {
     cart.push({ ...product, qty: 1 });
   }
   updateCart();
-  showToast(`${product.emoji} Added to cart!`);
+  showToast(`Added to cart!`);
 }
 
 function removeFromCart(productId) {
